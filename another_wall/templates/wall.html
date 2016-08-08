@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Wall</title>
+		<style type="text/css">
+			.message{
+				border-bottom: 2px solid blue;
+			}
+		</style>
+	</head>
+	<body>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					<p>{{message}}</p>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<h1>Hello, {{user["first_name"]}}</h1>
+		<form action="/message" method="post">
+			<textarea name="message" rows=4 cols=40></textarea>
+			<p><input type="submit" value="Leave a message"></p>
+		</form>
+
+	<div id="messages">
+		{% for message in messages %}
+			<div class="message">
+			<i>{{message.first_name}} said... 
+				{% if message["created_at"] %}
+					({{message["created_at"].strftime("%B %d, %Y, %I:%M:%S")}})
+				{% endif %}</i>
+			<p>{{message["message"]}}</p>
+			{% if message["user_id"] == session["user_id"] %}
+				<form action="/delete_message" method="post">
+					<input type="hidden" name="message_id" value="{{message.id}}">
+					<input type="submit" value="DELETE MESSAGE">
+				</form>
+			{% endif %}
+			<form action="/comment" method="POST">
+				<input type="hidden" value="{{message.id}}" name="message_id">
+				<textarea name="comment" rows=3 cols=30></textarea>
+				<p><input type="submit" value="Leave a comment"></p>
+			</form>
+			{% for comment in message["comments"] %}
+				<p>{{ comment.first_name }} commented...</p>
+				<p>{{ comment.comment }}</p>
+				{% if comment["can_delete"] %}
+					<form action="/delete_comment" method="post">
+						<input type="hidden" name="comment_id" value="{{comment.id}}">
+						<input type="submit" value="DELETE COMMENT">
+					</form>
+				{% endif %}
+			{% endfor %}
+			</div>
+		{% endfor %}
+	</div>
+	</body>
+</html>

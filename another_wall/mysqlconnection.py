@@ -2,7 +2,6 @@
 import mysql.connector
 import collections
 
-
 def _convert(data):
     if isinstance(data, str):
         return str(data)
