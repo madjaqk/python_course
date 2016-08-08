@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Log In</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	</head>
+	<body>
+		<div class="banner">
+			<table>
+				<tr>
+					<td><h4>CodingDojo Wall</h4></td>
+					<td>Welcome, {{ name }}</td>
+					<td><a href="/logout">Log Out</a></td>
+				</tr>
+			</table>
+
+		</div>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul>
+					{% for message in messages %}
+						<li>{{message}}</li>
+					{%endfor%}
+				</ul>
+			{%endif%}
+		{%endwith%}
+
+		<h2>Post a message</h2>
+		<form action="/message" method="post">
+			<textarea name="message" rows=6 cols=60></textarea>
+			<p><input type="submit" value="Post"></p>
+		</form>
+
+		{% for message in messages %}
+			<div class="post">
+				<h4>{{message.first_name}} ... {{ message.created_at }}</h4>
+				<p>{{ message.message }}</p>
+				<form action="/comment" method="post">
+					<input type="hidden" name="message_id" value="{{ message.id }}">
+					<textarea name="comment" rows=3 cols=45></textarea>
+					<p><input type="submit" value="Leave a comment"></p>
+				</form>
+			</div>
+		{% endfor %}

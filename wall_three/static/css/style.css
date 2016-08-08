@@ -1,0 +1,28 @@
+.login{
+	display: inline-block;
+	border: 5px solid blue;
+	border-radius: 15px;
+	margin: 25px;
+	padding: 25px;
+	vertical-align: top;
+}
+
+.login h2{
+	margin: 0px;
+}
+
+.banner{
+	border-bottom: 2px solid black;
+}
+
+.banner td{
+	width: 300px;
+}
+
+.post{
+	border-bottom: 1px solid gray;
+}
+
+.comment{
+	margin-left: 50px;
+}
