@@ -68,13 +68,13 @@ Assignments: Through Semi-RESTful Routes
 
 #### Tuesday, September 20
 
-Assignments: Through User Dashboard
+Assignments: Through Belt Review
 
 #### Wednesday, September 21
 
 Deployment demo
 
-Assignments: Through Belt Review
+Assignments: Through User Dashboard (optional, but decent practice)
 
 #### Thursday, September 22
 
