@@ -56,7 +56,7 @@ Assignments: Through Ninja Gold
 
 Intro to models (the "M" in MTV)
 
-Assignments: Through E-mail validation in class, finished with Login/Registration over the weekend
+Assignments: Through E-mail validation
 
 ## Week 3
 
@@ -64,17 +64,17 @@ Assignments: Through E-mail validation in class, finished with Login/Registratio
 
 GitHub practice
 
-Assignments: Through Semi-RESTful Routes
+Assignments: Through Login/Registration
 
 #### Tuesday, September 20
 
-Assignments: Through Belt Review
+Assignments: Through Semi-RESTful Routes
 
 #### Wednesday, September 21
 
 Deployment demo
 
-Assignments: Through User Dashboard (optional, but decent practice)
+Assignments: Through Belt Review (User Dashboard is optional)
 
 #### Thursday, September 22
 
